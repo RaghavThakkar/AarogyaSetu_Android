@@ -1,4 +1,4 @@
-package nic.goi.aarogyasetu.utility;
+package com.rt.core;
 
 import android.os.Build;
 import android.text.TextUtils;
@@ -30,10 +30,9 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.SignatureException;
-import nic.goi.aarogyasetu.CoronaApplication;
-import nic.goi.aarogyasetu.models.EncryptedInfo;
-import nic.goi.aarogyasetu.prefs.SharedPref;
-import nic.goi.aarogyasetu.prefs.SharedPrefsConstants;
+
+import com.rt.core.prefs.SharedPref;
+import com.rt.core.prefs.SharedPrefsConstants;
 
 /**
  * @author Niharika.Arora
@@ -63,7 +62,7 @@ public class DecryptionUtil extends SecureUtil {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             final GCMParameterSpec spec = new GCMParameterSpec(128, encryptedInfo.getIv());
-            cipher = Cipher.getInstance(TRANSFORMATION);
+            cipher = Cipher.getInstance(SecureUtil.TRANSFORMATION);
             cipher.init(Cipher.DECRYPT_MODE, getKey(), spec);
         } else {
             cipher = initCipherForLessThanM(getKey(), false);
@@ -74,8 +73,7 @@ public class DecryptionUtil extends SecureUtil {
     }
 
     public static Jws<Claims> decryptFile(String jwtToken) throws NoSuchAlgorithmException, InvalidKeySpecException, JwtException {
-        Logger.d(Constants.QR_SCREEN_TAG, "Decryption start");
-        String publicKeyString = SharedPref.getStringParams(CoronaApplication.instance, SharedPrefsConstants.PUBLIC_KEY, Constants.EMPTY);
+        String publicKeyString = SharedPref.getStringParams(BaseApplication.instance, SharedPrefsConstants.PUBLIC_KEY, Constants.EMPTY);
         if (!TextUtils.isEmpty(publicKeyString)) {
             byte[] publicKeyBytes = Base64.decode(publicKeyString, Base64.DEFAULT);
             // create a key object from the bytes

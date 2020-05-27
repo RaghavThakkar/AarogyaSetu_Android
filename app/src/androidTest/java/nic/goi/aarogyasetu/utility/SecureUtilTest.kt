@@ -1,7 +1,9 @@
 package nic.goi.aarogyasetu.utility
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import nic.goi.aarogyasetu.models.EncryptedInfo
+import com.rt.core.DecryptionUtil
+import com.rt.core.EncryptedInfo
+import com.rt.core.EncryptionUtil
 import org.hamcrest.Matchers
 import org.junit.Assert
 import org.junit.Before

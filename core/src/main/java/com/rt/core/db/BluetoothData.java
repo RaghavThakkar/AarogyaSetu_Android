@@ -1,4 +1,4 @@
-package nic.goi.aarogyasetu.models;
+package com.rt.core.db;
 
 import android.os.Build;
 
@@ -8,10 +8,10 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-import nic.goi.aarogyasetu.utility.CorUtility;
-import nic.goi.aarogyasetu.utility.EncryptionUtil;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.rt.core.EncryptedInfo;
+import com.rt.core.EncryptionUtil;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
@@ -23,6 +23,7 @@ import java.security.SignatureException;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -88,8 +89,9 @@ public class BluetoothData {
         this.distance = distance;
         this.txPower = txPower;
         this.txPowerLevel = txPowerLevel;
-        timeStamp = CorUtility.Companion.getCurrentEpochTimeInSec();
+        timeStamp = (int) System.currentTimeMillis() / 1000;
     }
+
 
     private void setEncLatitute(double latitude) {
         EncryptedInfo encryptedInfo = new EncryptedInfo();

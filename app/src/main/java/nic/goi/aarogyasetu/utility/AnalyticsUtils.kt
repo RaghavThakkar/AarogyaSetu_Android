@@ -6,8 +6,8 @@ import nic.goi.aarogyasetu.BuildConfig
 import nic.goi.aarogyasetu.CoronaApplication
 import nic.goi.aarogyasetu.analytics.EventParams
 import nic.goi.aarogyasetu.localization.LocaleManager
-import nic.goi.aarogyasetu.prefs.SharedPref
-import nic.goi.aarogyasetu.prefs.SharedPrefsConstants
+import com.rt.core.prefs.SharedPref
+import com.rt.core.prefs.SharedPrefsConstants
 import java.lang.Exception
 import kotlin.concurrent.thread
 

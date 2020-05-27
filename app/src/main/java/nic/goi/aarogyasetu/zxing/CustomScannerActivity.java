@@ -25,18 +25,16 @@ import androidx.core.content.ContextCompat;
 import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 
 import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.io.DecodingException;
-import io.jsonwebtoken.security.SignatureException;
 import nic.goi.aarogyasetu.R;
-import nic.goi.aarogyasetu.utility.Constants;
+import com.rt.core.Constants;
 import nic.goi.aarogyasetu.utility.CorUtility;
-import nic.goi.aarogyasetu.utility.DecryptionUtil;
+import com.rt.core.DecryptionUtil;
 import nic.goi.aarogyasetu.utility.LocalizationUtil;
 import nic.goi.aarogyasetu.views.QrActivity;
 

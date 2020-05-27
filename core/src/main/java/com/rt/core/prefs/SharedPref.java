@@ -1,4 +1,4 @@
-package nic.goi.aarogyasetu.prefs;
+package com.rt.core.prefs;
 
 import android.content.Context;
 import android.content.SharedPreferences;

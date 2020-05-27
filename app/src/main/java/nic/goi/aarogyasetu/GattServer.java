@@ -20,10 +20,10 @@ import android.text.TextUtils;
 import java.util.UUID;
 
 import nic.goi.aarogyasetu.analytics.EventNames;
-import nic.goi.aarogyasetu.prefs.SharedPref;
-import nic.goi.aarogyasetu.prefs.SharedPrefsConstants;
+import com.rt.core.prefs.SharedPref;
+import com.rt.core.prefs.SharedPrefsConstants;
 import nic.goi.aarogyasetu.utility.AnalyticsUtils;
-import nic.goi.aarogyasetu.utility.Constants;
+import com.rt.core.Constants;
 import nic.goi.aarogyasetu.utility.CorUtility;
 import nic.goi.aarogyasetu.utility.CorUtilityKt;
 import nic.goi.aarogyasetu.utility.Logger;

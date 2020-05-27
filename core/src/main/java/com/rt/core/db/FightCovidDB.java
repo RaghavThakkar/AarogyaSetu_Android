@@ -1,4 +1,4 @@
-package nic.goi.aarogyasetu.db;
+package com.rt.core.db;
 
 import android.content.Context;
 
@@ -9,9 +9,9 @@ import androidx.room.RoomDatabase;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import nic.goi.aarogyasetu.CoronaApplication;
-import nic.goi.aarogyasetu.db.dao.BluetoothDataDao;
-import nic.goi.aarogyasetu.models.BluetoothData;
+
+import com.rt.core.BaseApplication;
+import com.rt.core.db.dao.BluetoothDataDao;
 
 
 @Database(entities = {BluetoothData.class}, version = 3)
@@ -22,7 +22,7 @@ public abstract class FightCovidDB extends RoomDatabase {
     private static final String DATABASE_NAME = "fight-covid-db";
 
     public static FightCovidDB getInstance() {
-        Context context = CoronaApplication.getInstance().getApplicationContext();
+        Context context = BaseApplication.instance.getApplicationContext();
         if (sInstance == null) {
             sInstance = buildDatabase(context.getApplicationContext());
         }

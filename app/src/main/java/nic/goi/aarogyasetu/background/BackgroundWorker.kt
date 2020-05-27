@@ -6,7 +6,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import nic.goi.aarogyasetu.utility.Constants
+import com.rt.core.Constants
 import nic.goi.aarogyasetu.utility.CorUtility
 
 /**
@@ -32,9 +32,9 @@ class BackgroundWorker(context: Context, workerParams: WorkerParameters) : Worke
     }
 
     private fun startService(intent: Intent) {
-        val uniqueId = nic.goi.aarogyasetu.prefs.SharedPref.getStringParams(
+        val uniqueId = com.rt.core.prefs.SharedPref.getStringParams(
             nic.goi.aarogyasetu.CoronaApplication.getInstance(),
-            nic.goi.aarogyasetu.prefs.SharedPrefsConstants.UNIQUE_ID,
+            com.rt.core.prefs.SharedPrefsConstants.UNIQUE_ID,
             Constants.EMPTY
         )
         if (!BluetoothScanningService.serviceRunning && uniqueId.isNotEmpty()) {

@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.rt.core.Constants
 import kotlinx.android.synthetic.main.activity_permission.*
 import nic.goi.aarogyasetu.BuildConfig
 import nic.goi.aarogyasetu.CoronaApplication
@@ -25,8 +26,8 @@ import nic.goi.aarogyasetu.R
 import nic.goi.aarogyasetu.analytics.EventNames
 import nic.goi.aarogyasetu.analytics.ScreenNames
 import nic.goi.aarogyasetu.background.BluetoothScanningService
-import nic.goi.aarogyasetu.prefs.SharedPref
-import nic.goi.aarogyasetu.prefs.SharedPrefsConstants
+import com.rt.core.prefs.SharedPref
+import com.rt.core.prefs.SharedPrefsConstants
 import nic.goi.aarogyasetu.utility.*
 import nic.goi.aarogyasetu.utility.CorUtility.Companion.arePermissionsGranted
 import nic.goi.aarogyasetu.utility.CorUtility.Companion.enableLocation

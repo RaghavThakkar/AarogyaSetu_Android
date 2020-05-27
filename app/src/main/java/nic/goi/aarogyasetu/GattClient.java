@@ -21,8 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import nic.goi.aarogyasetu.db.DBManager;
-import nic.goi.aarogyasetu.models.BluetoothData;
+import com.rt.core.db.DBManager;
+import com.rt.core.db.BluetoothData;
 import nic.goi.aarogyasetu.utility.Logger;
 import nic.goi.aarogyasetu.models.BluetoothModel;
 

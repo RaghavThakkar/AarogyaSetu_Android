@@ -1,6 +1,5 @@
 package nic.goi.aarogyasetu.views;
 
-import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -56,12 +55,8 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
 import java.util.Map;
-import java.util.Random;
 import java.util.Stack;
 
 import nic.goi.aarogyasetu.BuildConfig;
@@ -70,12 +65,12 @@ import nic.goi.aarogyasetu.R;
 import nic.goi.aarogyasetu.analytics.EventNames;
 import nic.goi.aarogyasetu.analytics.ScreenNames;
 import nic.goi.aarogyasetu.firebase.FirebaseRemoteConfigUtil;
-import nic.goi.aarogyasetu.prefs.SharedPref;
-import nic.goi.aarogyasetu.prefs.SharedPrefsConstants;
+import com.rt.core.prefs.SharedPref;
+import com.rt.core.prefs.SharedPrefsConstants;
 import nic.goi.aarogyasetu.utility.AnalyticsUtils;
 import nic.goi.aarogyasetu.utility.AppExecutors;
 import nic.goi.aarogyasetu.utility.AuthUtility;
-import nic.goi.aarogyasetu.utility.Constants;
+import com.rt.core.Constants;
 import nic.goi.aarogyasetu.utility.CorUtility;
 import nic.goi.aarogyasetu.utility.CorUtilityKt;
 import nic.goi.aarogyasetu.utility.ExecutorHelper;

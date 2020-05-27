@@ -1,4 +1,4 @@
-package nic.goi.aarogyasetu.models
+package com.rt.core
 
 
 /**

@@ -9,7 +9,7 @@ apply plugin: 'io.fabric'
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+//keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 ext {
     sslPublicKey = keystoreProperties['ssl_public_key']
@@ -33,7 +33,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file(keystoreProperties['key_store_cetificate'])
+//            storeFile file(keystoreProperties['key_store_cetificate'])
             storePassword keystoreProperties['key_store_password']
             keyAlias keystoreProperties['key_alias']
             keyPassword keystoreProperties['key_password']
@@ -77,7 +77,7 @@ android {
         buildConfigField "String", "VERIFY_APP_URL", "\"${keystoreProperties['verify_app_url']}\""
 
 
-        applicationId "nic.goi.aarogyasetu"
+        applicationId "rt.dev.aarogyasetu"
         minSdkVersion Integer.parseInt(project.MIN_SDK_VERSION)
         targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
         versionCode Integer.parseInt(project.APP_VERSION_CODE)
@@ -89,7 +89,7 @@ android {
 
     buildTypes {
         debug {
-            applicationIdSuffix ".debug"
+//            applicationIdSuffix ".debug"
             debuggable true
         }
         release {
@@ -114,6 +114,7 @@ android {
 
 dependencies {
 
+    implementation project(path: ':core')
     def room_version = "2.2.5"
 
     implementation "androidx.room:room-runtime:$room_version"

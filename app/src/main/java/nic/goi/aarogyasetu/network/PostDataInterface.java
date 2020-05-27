@@ -7,7 +7,7 @@ import nic.goi.aarogyasetu.models.network.GenerateOTP;
 import nic.goi.aarogyasetu.models.network.RegisterationData;
 import nic.goi.aarogyasetu.models.network.TokenValidationResponse;
 import nic.goi.aarogyasetu.models.network.ValidateOTP;
-import nic.goi.aarogyasetu.utility.Constants;
+import com.rt.core.Constants;
 import com.google.gson.JsonElement;
 
 import org.json.JSONObject;

@@ -8,6 +8,7 @@ import androidx.annotation.AnyThread
 import androidx.annotation.MainThread
 import androidx.annotation.Nullable
 import androidx.annotation.WorkerThread
+import com.rt.core.Constants
 import nic.goi.aarogyasetu.BuildConfig
 import nic.goi.aarogyasetu.CoronaApplication
 import nic.goi.aarogyasetu.R
@@ -270,9 +271,9 @@ object AuthUtility {
             synchronized(this) {
                 if (isSignedIn()) {
                     clearUserDetails()
-                    nic.goi.aarogyasetu.prefs.SharedPref.setStringParams(
+                    com.rt.core.prefs.SharedPref.setStringParams(
                         nic.goi.aarogyasetu.CoronaApplication.instance,
-                        nic.goi.aarogyasetu.prefs.SharedPrefsConstants.UNIQUE_ID,
+                        com.rt.core.prefs.SharedPrefsConstants.UNIQUE_ID,
                         ""
                     )
                 }

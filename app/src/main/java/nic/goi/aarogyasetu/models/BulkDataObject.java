@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-import nic.goi.aarogyasetu.utility.Constants;
+import com.rt.core.Constants;
 
 public class BulkDataObject {
     @SerializedName("d")

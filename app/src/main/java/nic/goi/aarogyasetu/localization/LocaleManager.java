@@ -4,12 +4,12 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 
-import nic.goi.aarogyasetu.prefs.SharedPref;
-import nic.goi.aarogyasetu.prefs.SharedPrefsConstants;
+import com.rt.core.prefs.SharedPref;
+import com.rt.core.prefs.SharedPrefsConstants;
 
 import java.util.Locale;
 
-import static nic.goi.aarogyasetu.prefs.SharedPrefsConstants.DEFAULT_LANGUAGE_CODE;
+import static com.rt.core.prefs.SharedPrefsConstants.DEFAULT_LANGUAGE_CODE;
 
 /**
  * Created by Kshitij Khatri on 23/03/20.

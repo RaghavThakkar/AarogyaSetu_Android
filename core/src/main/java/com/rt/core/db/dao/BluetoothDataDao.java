@@ -1,4 +1,4 @@
-package nic.goi.aarogyasetu.db.dao;
+package com.rt.core.db.dao;
 
 
 import androidx.room.Dao;
@@ -6,11 +6,10 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import nic.goi.aarogyasetu.models.BluetoothData;
+
+import com.rt.core.db.BluetoothData;
 
 import java.util.List;
-
-import nic.goi.aarogyasetu.models.BluetoothData;
 
 @Dao
 public interface BluetoothDataDao {

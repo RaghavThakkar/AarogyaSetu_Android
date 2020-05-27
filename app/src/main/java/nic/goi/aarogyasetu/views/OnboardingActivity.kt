@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_onboarding.*
 import nic.goi.aarogyasetu.R
 import nic.goi.aarogyasetu.analytics.EventNames
 import nic.goi.aarogyasetu.utility.AnalyticsUtils
-import nic.goi.aarogyasetu.utility.Constants
+import com.rt.core.Constants
 import nic.goi.aarogyasetu.utility.LocalizationUtil.getLocalisedString
 
 class OnboardingActivity : AppCompatActivity(), SelectLanguageFragment.LanguageChangeListener {

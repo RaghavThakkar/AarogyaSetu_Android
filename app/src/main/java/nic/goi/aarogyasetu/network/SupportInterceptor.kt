@@ -3,7 +3,7 @@ package nic.goi.aarogyasetu.network
 import nic.goi.aarogyasetu.BuildConfig
 import nic.goi.aarogyasetu.CoronaApplication
 import nic.goi.aarogyasetu.utility.AuthUtility
-import nic.goi.aarogyasetu.utility.Constants
+import com.rt.core.Constants
 import okhttp3.*
 import java.io.IOException
 

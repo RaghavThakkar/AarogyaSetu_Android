@@ -1,6 +1,6 @@
 package nic.goi.aarogyasetu.network;
 
-import nic.goi.aarogyasetu.utility.Constants;
+import com.rt.core.Constants;
 
 import java.io.IOException;
 

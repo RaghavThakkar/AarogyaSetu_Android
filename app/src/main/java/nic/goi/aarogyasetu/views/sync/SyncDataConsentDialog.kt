@@ -5,17 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
 import androidx.annotation.Nullable
 import androidx.fragment.app.DialogFragment
 import kotlinx.android.synthetic.main.dialog_sync_data_consent.*
 import nic.goi.aarogyasetu.R
 import nic.goi.aarogyasetu.analytics.EventNames
 import nic.goi.aarogyasetu.analytics.EventParams
-import nic.goi.aarogyasetu.utility.AnalyticsUtils
 import nic.goi.aarogyasetu.utility.AnalyticsUtils.sendEvent
-import nic.goi.aarogyasetu.utility.Constants
+import com.rt.core.Constants
 import nic.goi.aarogyasetu.utility.LocalizationUtil
 
 

@@ -1,4 +1,4 @@
-package nic.goi.aarogyasetu.utility;
+package com.rt.core;
 
 /**
  * @author Niharika.Arora

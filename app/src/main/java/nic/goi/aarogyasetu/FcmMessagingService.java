@@ -11,9 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import nic.goi.aarogyasetu.prefs.SharedPref;
-import nic.goi.aarogyasetu.prefs.SharedPrefsConstants;
-import nic.goi.aarogyasetu.utility.Constants;
+import com.rt.core.prefs.SharedPref;
+import com.rt.core.prefs.SharedPrefsConstants;
+import com.rt.core.Constants;
 import nic.goi.aarogyasetu.utility.CorUtility;
 import nic.goi.aarogyasetu.utility.UploadDataUtil;
 import nic.goi.aarogyasetu.views.HomeActivity;

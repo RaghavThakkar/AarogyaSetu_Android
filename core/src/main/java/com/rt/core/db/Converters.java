@@ -1,9 +1,10 @@
-package nic.goi.aarogyasetu.models;
+package com.rt.core.db;
 
 import androidx.room.TypeConverter;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.rt.core.EncryptedInfo;
 
 import java.lang.reflect.Type;
 

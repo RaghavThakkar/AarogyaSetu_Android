@@ -21,10 +21,10 @@ import nic.goi.aarogyasetu.R;
 import nic.goi.aarogyasetu.adapters.SelectLanguageAdapter;
 import nic.goi.aarogyasetu.analytics.EventNames;
 import nic.goi.aarogyasetu.models.LanguageDTO;
-import nic.goi.aarogyasetu.prefs.SharedPref;
-import nic.goi.aarogyasetu.prefs.SharedPrefsConstants;
+import com.rt.core.prefs.SharedPref;
+import com.rt.core.prefs.SharedPrefsConstants;
 import nic.goi.aarogyasetu.utility.AnalyticsUtils;
-import nic.goi.aarogyasetu.utility.Constants;
+import com.rt.core.Constants;
 import nic.goi.aarogyasetu.utility.LanguageList;
 import nic.goi.aarogyasetu.utility.LocalizationUtil;
 

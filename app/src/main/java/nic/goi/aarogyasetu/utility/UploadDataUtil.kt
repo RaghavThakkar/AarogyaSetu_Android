@@ -2,17 +2,19 @@ package nic.goi.aarogyasetu.utility
 
 import android.os.Bundle
 import android.text.TextUtils
+import com.rt.core.Constants
+import com.rt.core.DecryptionUtil
 import nic.goi.aarogyasetu.BuildConfig
 import nic.goi.aarogyasetu.CoronaApplication
 import nic.goi.aarogyasetu.analytics.EventNames
 import nic.goi.aarogyasetu.analytics.EventParams
-import nic.goi.aarogyasetu.db.FightCovidDB
-import nic.goi.aarogyasetu.models.BluetoothData
+import com.rt.core.db.FightCovidDB
+import com.rt.core.db.BluetoothData
 import nic.goi.aarogyasetu.models.BulkDataObject
 import nic.goi.aarogyasetu.models.DataPoint
-import nic.goi.aarogyasetu.models.EncryptedInfo
-import nic.goi.aarogyasetu.prefs.SharedPref
-import nic.goi.aarogyasetu.prefs.SharedPrefsConstants
+import com.rt.core.EncryptedInfo
+import com.rt.core.prefs.SharedPref
+import com.rt.core.prefs.SharedPrefsConstants
 import nic.goi.aarogyasetu.utility.CorUtility.Companion.hitNetworkRequest
 import java.util.concurrent.Callable
 

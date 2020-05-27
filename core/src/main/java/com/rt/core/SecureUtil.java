@@ -1,4 +1,4 @@
-package nic.goi.aarogyasetu.utility;
+package com.rt.core;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -36,8 +36,6 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import javax.security.auth.x500.X500Principal;
 
-import nic.goi.aarogyasetu.BuildConfig;
-import nic.goi.aarogyasetu.CoronaApplication;
 
 import static android.security.keystore.KeyProperties.KEY_ALGORITHM_AES;
 
@@ -54,6 +52,8 @@ abstract class SecureUtil {
     private static final String CIPHER_PROVIDER_NAME_ENCRYPTION_DECRYPTION_RSA = "AndroidOpenSSL";
     private static final String CIPHER_PROVIDER_NAME_ENCRYPTION_DECRYPTION_AES = "BC";
     private static final String AES_MODE_LESS_THAN_M = "AES/ECB/PKCS5Padding";
+    private static final String KEYSTORE = "AES/ECB/PKCS5Padding";
+    private static final String ALIAS = "AES/ECB/PKCS5Padding";
     private final static Object s_keyInitLock = new Object();
 
 
@@ -95,7 +95,7 @@ abstract class SecureUtil {
 
     private void removeKeys() throws KeyStoreException, CertificateException, NoSuchAlgorithmException, IOException {
         synchronized (s_keyInitLock) {
-            KeyStore keyStore = KeyStore.getInstance(BuildConfig.KEYSTORE);
+            KeyStore keyStore = KeyStore.getInstance(KEYSTORE);
             keyStore.load(null);
             removeKeys(keyStore);
         }
@@ -103,25 +103,25 @@ abstract class SecureUtil {
 
     private void removeKeys(KeyStore keyStore) throws KeyStoreException {
         synchronized (s_keyInitLock) {
-            keyStore.deleteEntry(BuildConfig.ALIAS);
+            keyStore.deleteEntry(ALIAS);
             removeSavedSharedPreferences();
         }
     }
 
     @SuppressLint("ApplySharedPref")
     private void removeSavedSharedPreferences() {
-        SharedPreferences sharedPreferences = CoronaApplication.getInstance().getContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = BaseApplication.instance.getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
         sharedPreferences.edit().clear().commit();
     }
 
     SecretKey getSecretKey() throws NoSuchAlgorithmException,
             NoSuchProviderException, InvalidAlgorithmParameterException, KeyStoreException, CertificateException, IOException, UnrecoverableEntryException {
-        KeyStore keyStore = KeyStore.getInstance(BuildConfig.KEYSTORE);
+        KeyStore keyStore = KeyStore.getInstance(KEYSTORE);
         keyStore.load(null);
-        if (!keyStore.containsAlias(BuildConfig.ALIAS)) {
+        if (!keyStore.containsAlias(ALIAS)) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                KeyGenerator keyGenerator = KeyGenerator.getInstance(KEY_ALGORITHM_AES, BuildConfig.KEYSTORE);
-                keyGenerator.init(new KeyGenParameterSpec.Builder(BuildConfig.ALIAS, KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT)
+                KeyGenerator keyGenerator = KeyGenerator.getInstance(KEY_ALGORITHM_AES, KEYSTORE);
+                keyGenerator.init(new KeyGenParameterSpec.Builder(ALIAS, KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT)
                         .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
                         .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
                         .build());
@@ -129,28 +129,28 @@ abstract class SecureUtil {
 
             }
         } else {
-            return ((KeyStore.SecretKeyEntry) keyStore.getEntry(BuildConfig.ALIAS, null)).getSecretKey();
+            return ((KeyStore.SecretKeyEntry) keyStore.getEntry(ALIAS, null)).getSecretKey();
         }
         return null;
     }
 
     void generateKeysForAPILessThanM() throws NoSuchProviderException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, CertificateException, UnrecoverableEntryException, NoSuchPaddingException, KeyStoreException, InvalidKeyException, IOException {
         // Generate a key pair for encryption
-        KeyStore keyStore = KeyStore.getInstance(BuildConfig.KEYSTORE);
+        KeyStore keyStore = KeyStore.getInstance(KEYSTORE);
         keyStore.load(null);
-        if (!keyStore.containsAlias(BuildConfig.ALIAS)) {
+        if (!keyStore.containsAlias(ALIAS)) {
             Calendar start = Calendar.getInstance();
             Calendar end = Calendar.getInstance();
             end.add(Calendar.YEAR, 30);
-            KeyPairGeneratorSpec spec = new KeyPairGeneratorSpec.Builder(CoronaApplication.getInstance().getContext())
-                    .setAlias(BuildConfig.ALIAS)
-                    .setSubject(new X500Principal("CN=" + BuildConfig.ALIAS))
+            KeyPairGeneratorSpec spec = new KeyPairGeneratorSpec.Builder(BaseApplication.instance.getApplicationContext())
+                    .setAlias(ALIAS)
+                    .setSubject(new X500Principal("CN=" + ALIAS))
                     .setSerialNumber(BigInteger.TEN)
                     .setStartDate(start.getTime())
                     .setEndDate(end.getTime())
                     .setKeySize(1024)
                     .build();
-            KeyPairGenerator kpg = KeyPairGenerator.getInstance(RSA_ALGORITHM_NAME, BuildConfig.KEYSTORE);
+            KeyPairGenerator kpg = KeyPairGenerator.getInstance(RSA_ALGORITHM_NAME, KEYSTORE);
             kpg.initialize(spec);
             kpg.generateKeyPair();
         }
@@ -159,7 +159,7 @@ abstract class SecureUtil {
     }
 
     private void saveEncryptedKey() throws CertificateException, NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException, KeyStoreException, NoSuchProviderException, UnrecoverableEntryException, IOException {
-        SharedPreferences pref = CoronaApplication.getInstance().getContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences pref = BaseApplication.instance.getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
         String encryptedKeyBase64encoded = pref.getString(ENCRYPTED_KEY_NAME, null);
         if (encryptedKeyBase64encoded == null) {
             byte[] key = new byte[16];
@@ -176,10 +176,10 @@ abstract class SecureUtil {
 
     private byte[] rsaEncryptKey(byte[] secret) throws KeyStoreException, CertificateException, NoSuchAlgorithmException, IOException, NoSuchProviderException, NoSuchPaddingException, UnrecoverableEntryException, InvalidKeyException {
 
-        KeyStore keyStore = KeyStore.getInstance(BuildConfig.KEYSTORE);
+        KeyStore keyStore = KeyStore.getInstance(KEYSTORE);
         keyStore.load(null);
 
-        KeyStore.PrivateKeyEntry privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(BuildConfig.ALIAS, null);
+        KeyStore.PrivateKeyEntry privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(ALIAS, null);
         Cipher inputCipher = Cipher.getInstance(RSA_MODE, CIPHER_PROVIDER_NAME_ENCRYPTION_DECRYPTION_RSA);
         inputCipher.init(Cipher.ENCRYPT_MODE, privateKeyEntry.getCertificate().getPublicKey());
 
@@ -203,17 +203,17 @@ abstract class SecureUtil {
 
     private byte[] rsaDecryptKey(byte[] encrypted) throws KeyStoreException, CertificateException, NoSuchAlgorithmException, IOException, UnrecoverableEntryException, NoSuchProviderException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
 
-        KeyStore keyStore = KeyStore.getInstance(BuildConfig.KEYSTORE);
+        KeyStore keyStore = KeyStore.getInstance(KEYSTORE);
         keyStore.load(null);
 
-        KeyStore.PrivateKeyEntry privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(BuildConfig.ALIAS, null);
+        KeyStore.PrivateKeyEntry privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(ALIAS, null);
         Cipher output = Cipher.getInstance(RSA_MODE, CIPHER_PROVIDER_NAME_ENCRYPTION_DECRYPTION_RSA);
         output.init(Cipher.DECRYPT_MODE, privateKeyEntry.getPrivateKey());
         return output.doFinal(encrypted);
     }
 
     private String getSecretKeyFromSharedPreferences() {
-        SharedPreferences sharedPreferences = CoronaApplication.getInstance().getContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = BaseApplication.instance.getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(ENCRYPTED_KEY_NAME, null);
     }
 }

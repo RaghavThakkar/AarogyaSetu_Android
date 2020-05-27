@@ -1,4 +1,4 @@
-package nic.goi.aarogyasetu.utility;
+package com.rt.core;
 
 
 import android.os.Build;
@@ -19,8 +19,6 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-
-import nic.goi.aarogyasetu.models.EncryptedInfo;
 
 /**
  * @author Niharika.Arora
@@ -68,7 +66,7 @@ public class EncryptionUtil extends SecureUtil {
     private Cipher getCipher() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, NoSuchProviderException, InvalidAlgorithmParameterException, KeyStoreException, CertificateException, IOException, UnrecoverableEntryException, BadPaddingException, IllegalBlockSizeException {
         Cipher cipher;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            cipher = Cipher.getInstance(TRANSFORMATION);
+            cipher = Cipher.getInstance(SecureUtil.TRANSFORMATION);
             cipher.init(Cipher.ENCRYPT_MODE, getSecretKey());
         } else {
             generateKeysForAPILessThanM();

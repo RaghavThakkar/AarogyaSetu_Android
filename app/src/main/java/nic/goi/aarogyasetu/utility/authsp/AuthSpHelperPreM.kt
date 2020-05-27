@@ -2,10 +2,9 @@ package nic.goi.aarogyasetu.utility.authsp
 
 import android.content.Context
 import nic.goi.aarogyasetu.CoronaApplication
-import nic.goi.aarogyasetu.models.Converters
-import nic.goi.aarogyasetu.models.EncryptedInfo
-import nic.goi.aarogyasetu.utility.DecryptionUtil
-import nic.goi.aarogyasetu.utility.EncryptionUtil
+import com.rt.core.db.Converters
+import com.rt.core.DecryptionUtil
+import com.rt.core.EncryptionUtil
 
 /**
  * @author Aman kapoor

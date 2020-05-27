@@ -17,7 +17,7 @@ import nic.goi.aarogyasetu.R
 import nic.goi.aarogyasetu.analytics.EventNames
 import nic.goi.aarogyasetu.analytics.EventParams
 import nic.goi.aarogyasetu.utility.AnalyticsUtils.sendEvent
-import nic.goi.aarogyasetu.utility.Constants
+import com.rt.core.Constants
 import nic.goi.aarogyasetu.utility.LocalizationUtil
 
 

@@ -5,14 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.fragment.app.DialogFragment
 import kotlinx.android.synthetic.main.dialog_sync_data.*
 import nic.goi.aarogyasetu.R
-import nic.goi.aarogyasetu.utility.Constants
+import com.rt.core.Constants
 import nic.goi.aarogyasetu.utility.LocalizationUtil
 
 

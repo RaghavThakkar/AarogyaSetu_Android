@@ -1,22 +1,14 @@
 package nic.goi.aarogyasetu.location
 
 import android.Manifest
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
 import android.content.pm.PackageManager
-import android.location.LocationManager
 import android.os.Looper
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
 import nic.goi.aarogyasetu.CoronaApplication
-import nic.goi.aarogyasetu.db.DBManager
-import nic.goi.aarogyasetu.models.BluetoothData
-import nic.goi.aarogyasetu.prefs.SharedPref
-import nic.goi.aarogyasetu.prefs.SharedPrefsConstants
-import nic.goi.aarogyasetu.utility.Constants
-import nic.goi.aarogyasetu.utility.CorUtility
+import com.rt.core.db.DBManager
+import com.rt.core.db.BluetoothData
+import com.rt.core.Constants
 import nic.goi.aarogyasetu.utility.Logger
 
 

@@ -1,4 +1,4 @@
-package nic.goi.aarogyasetu.prefs;
+package com.rt.core.prefs;
 
 /**
  * Created by kshitij.khatri on 24-Jul-17.

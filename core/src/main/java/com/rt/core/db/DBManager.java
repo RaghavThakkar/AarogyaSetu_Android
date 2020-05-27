@@ -1,7 +1,6 @@
-package nic.goi.aarogyasetu.db;
+package com.rt.core.db;
 
 
-import nic.goi.aarogyasetu.models.BluetoothData;
 
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;

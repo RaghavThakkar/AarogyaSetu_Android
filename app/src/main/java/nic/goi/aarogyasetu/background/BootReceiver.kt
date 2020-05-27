@@ -7,10 +7,10 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
 import nic.goi.aarogyasetu.CoronaApplication
-import nic.goi.aarogyasetu.prefs.SharedPref
-import nic.goi.aarogyasetu.prefs.SharedPrefsConstants
+import com.rt.core.prefs.SharedPref
+import com.rt.core.prefs.SharedPrefsConstants
 import nic.goi.aarogyasetu.utility.AuthUtility
-import nic.goi.aarogyasetu.utility.Constants
+import com.rt.core.Constants
 import nic.goi.aarogyasetu.utility.CorUtility
 
 class BootReceiver : BroadcastReceiver() {

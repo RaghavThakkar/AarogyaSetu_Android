@@ -12,6 +12,7 @@ import androidx.work.WorkManager;
 import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.location.LocationServices;
 import com.google.firebase.FirebaseApp;
+import com.rt.core.BaseApplication;
 
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -23,7 +24,7 @@ import nic.goi.aarogyasetu.utility.CorUtility;
  * @author Chandrapal Yadav
  * @author Niharika.Arora
  */
-public class CoronaApplication extends Application implements Configuration.Provider {
+public class CoronaApplication extends BaseApplication implements Configuration.Provider {
 
     public static CoronaApplication instance;
      static Location lastKnownLocation = null;
@@ -100,8 +101,6 @@ public class CoronaApplication extends Application implements Configuration.Prov
     public Configuration getWorkManagerConfiguration() {
         return new Configuration.Builder().setExecutor(Executors.newFixedThreadPool(8)).build();
     }
-
-
 
 
 }

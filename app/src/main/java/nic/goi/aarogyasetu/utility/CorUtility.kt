@@ -29,6 +29,9 @@ import com.crashlytics.android.Crashlytics
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
+import com.rt.core.Constants
+import com.rt.core.prefs.SharedPref
+import com.rt.core.prefs.SharedPrefsConstants
 import nic.goi.aarogyasetu.BuildConfig
 import nic.goi.aarogyasetu.CoronaApplication
 import nic.goi.aarogyasetu.analytics.EventNames
@@ -40,8 +43,6 @@ import nic.goi.aarogyasetu.listener.QrPublicKeyListener
 import nic.goi.aarogyasetu.models.BulkDataObject
 import nic.goi.aarogyasetu.models.network.RegisterationData
 import nic.goi.aarogyasetu.network.NetworkClient
-import nic.goi.aarogyasetu.prefs.SharedPref
-import nic.goi.aarogyasetu.prefs.SharedPrefsConstants
 import nic.goi.aarogyasetu.views.HomeActivity
 import nic.goi.aarogyasetu.views.PermissionActivity
 import org.json.JSONObject
@@ -633,7 +634,7 @@ class CorUtility {
 
 
         fun getNotificationChannel(): String {
-            return nic.goi.aarogyasetu.utility.Constants.NOTIFICATION_CHANNEL
+            return Constants.NOTIFICATION_CHANNEL
         }
 
         @JvmStatic
@@ -789,7 +790,7 @@ class CorUtility {
 
         @JvmStatic
         fun remove30DaysOldData() {
-            val dbInstance = nic.goi.aarogyasetu.db.FightCovidDB.getInstance()
+            val dbInstance = com.rt.core.db.FightCovidDB.getInstance()
             val timestamp30 = 30 * 24 * 60 * 60  // timestamp for 30 days
             dbInstance.bluetoothDataDao.deleteXDaysOldData(timestamp30, getCurrentEpochTimeInSec())
         }
